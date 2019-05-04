@@ -1,0 +1,29 @@
+{
+    "name": "creatint/captcha",
+    "type": "library",
+    "require": {
+        "mews/captcha": "^2.2",
+        "illuminate/support": "^5.8",
+        "illuminate/session": "^5.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Creatint",
+            "email": "creatint@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Creatint\\Captcha\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Creatint\\Captcha\\CaptchaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
