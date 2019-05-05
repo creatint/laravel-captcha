@@ -38,6 +38,13 @@ class Captcha extends MewsCaptcha
         parent::__construct($files, $config, $imageManager, $session, $hasher, $str);
     }
 
+    /**
+     * Create captcha image
+     *
+     * @param string $config
+     * @param boolean $api
+     * @return ImageManager->response
+     */
     public function create($config = 'default', $api = false)
     {
         if (!$api) {
@@ -53,6 +60,13 @@ class Captcha extends MewsCaptcha
     }
 
 
+    /**
+     * Captcha check
+     *
+     * @param $value string
+     * @param $key string
+     * @return bool
+     */
     public function check_api($value, $key = null)
     {
         if (!MewsCaptcha::check_api($value, $key)) {

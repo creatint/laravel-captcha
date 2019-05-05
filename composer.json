@@ -1,11 +1,7 @@
 {
     "name": "creatint/captcha",
     "type": "library",
-    "require": {
-        "mews/captcha": "^2.2",
-        "illuminate/support": "^5.8",
-        "illuminate/session": "^5.8"
-    },
+    "description": "Captcha for Laravel5.8+",
     "license": "MIT",
     "authors": [
         {
@@ -13,6 +9,12 @@
             "email": "creatint@163.com"
         }
     ],
+    "require": {
+        "mews/captcha": "^2.2",
+        "illuminate/support": "^5.8",
+        "illuminate/session": "^5.8",
+        "illuminate/routing": "^5.8"
+    },
     "autoload": {
         "psr-4": {
             "Creatint\\Captcha\\": "src/"
@@ -22,7 +24,10 @@
         "laravel": {
             "providers": [
                 "Creatint\\Captcha\\CaptchaServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Captcha": "Creatint\\Captcha\\Facades\\Captcha"
+            }
         }
     },
     "minimum-stability": "dev"
