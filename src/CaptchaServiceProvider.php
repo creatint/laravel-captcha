@@ -18,20 +18,6 @@ class CaptchaServiceProvider extends ServiceProvider
             __DIR__ . '/config/captcha.php' => config_path('captcha.php')
         ], 'config');
 
-        // HTTP routing
-        if (strpos($this->app->version(), 'Lumen') !== false) {
-            $this->app->get('captcha[/api/{config}]', 'Creatint\Captcha\LumenCaptchaController@getCaptchaApi');
-            $this->app->get('captcha[/{config}]', 'Creatint\Captcha\LumenCaptchaController@getCaptcha');
-        } else {
-            if ((double)$this->app->version() >= 5.2) {
-                $this->app['router']->get('captcha/api/{config?}', '\Creatint\Captcha\CaptchaController@getCaptchaApi')->middleware('web');
-                $this->app['router']->get('captcha/{config?}', '\Creatint\Captcha\CaptchaController@getCaptcha')->middleware('web');
-            } else {
-                $this->app['router']->get('captcha/api/{config?}', '\Creatint\Captcha\CaptchaController@getCaptchaApi');
-                $this->app['router']->get('captcha/{config?}', '\Creatint\Captcha\CaptchaController@getCaptcha');
-            }
-        }
-
         // Validator extensions
         $this->app['validator']->extend('captcha', function ($attribute, $value, $parameters) {
             return captcha_check($value);

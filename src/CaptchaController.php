@@ -13,13 +13,13 @@ class CaptchaController extends Controller
      * @param string $config
      * @return \Intervention\Image\ImageManager->response
      */
-    public function getCaptcha(Captcha $captcha, $config = 'default')
+    public function getCaptcha(Captcha $captcha)
     {
         if (ob_get_contents()) {
             ob_clean();
         }
 
-        return $captcha->create($config);
+        return $captcha->create('default');
     }
 
     /**
@@ -29,8 +29,8 @@ class CaptchaController extends Controller
      * @param string $config
      * @return \Intervention\Image\ImageManager->response
      */
-    public function getCaptchaApi(Captcha $captcha, $config = 'default')
+    public function getCaptchaApi(Captcha $captcha)
     {
-        return $captcha->create($config, true);
+        return $captcha->create('default', true);
     }
 }
