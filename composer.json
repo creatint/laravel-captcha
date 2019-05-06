@@ -22,7 +22,10 @@
     "autoload": {
         "psr-4": {
             "Creatint\\Captcha\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
